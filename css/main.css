@@ -1,0 +1,9 @@
+@import "./base.css";
+
+.bird {
+    font-size: 100px;
+}
+
+.wall {
+    background-color: red;
+}
