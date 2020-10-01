@@ -1,9 +1,67 @@
 @import "./base.css";
 
+body {
+    margin: 0;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.startscreen {
+    z-index: 1;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: yellow;
+    color: darkblue;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.playbutton {
+    background-color: darkblue;
+    color: white;
+    border: none;
+    font-size: 3em;
+    padding: 1rem 1.6rem;
+    cursor: pointer;
+}
+
+.game {
+    background-color: lightblue;
+    width: 100vw;
+    height: 100vh;
+    overflow: hidden;
+    position: relative;
+
+
+	background: linear-gradient(-45deg, lightblue, lightgreen, lightyellow, lightpink);
+	background-size: 400% 400%;
+	animation: gradient 15s ease infinite;
+}
+
 .bird {
     font-size: 100px;
+    line-height: 1;
+    vertical-align: bottom;
 }
 
 .wall {
-    background-color: red;
+    background-color: goldenrod;
+    border: 3px solid brown;
+}
+
+
+@keyframes gradient {
+	0% {
+		background-position: 100% 50%;
+	}
+	50% {
+		background-position: 0% 50%;
+	}
+	100% {
+		background-position: 100% 50%;
+	}
 }

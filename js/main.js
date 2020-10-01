@@ -1,66 +1,26 @@
-import Bird from "./bird.js";
-import Wall from "./wall.js";
+import Game from "./game.js";
 
-const bird = new Bird(
-    document.querySelector(".bird"),
-    400,
-    400,
-    30,
-);
 
-let walls = [
-];
-
-const interval = setInterval(gameLoop, 33);
-
-let loopCounter = 0;
-function gameLoop() {
-    console.log(loopCounter);
+document.querySelector(".playbutton").addEventListener("click", function (event) {
+    event.currentTarget.parentElement.parentElement.removeChild(event.currentTarget.parentElement);
     
-    bird.update(1, 0.03);
-    walls.forEach(wall => {
-        wall.update();
+    const game = new Game(
+        document.getElementById("game"),
+        window.innerWidth,
+        window.innerHeight,
+    )
+    
+    game.start();
 
-        if (bird.x < wall.x + wall.width &&
-            bird.x + bird.elem.offsetWidth > wall.x &&
-            bird.y < wall.y + wall.height &&
-            bird.y + bird.elem.offsetHeight > wall.y) {
-            console.log("collision!");
-            clearInterval(interval);
-         }
+    document.addEventListener("keypress", function (event) {
+        event.preventDefault();
+        game.bird.moveUp(25);
+        game.addCrap();
     });
-
-
-
-    if (bird.y > 800 || bird.y < 0) {
-        console.log("game over!");
-        clearInterval(interval);
-    }
-
-    if (loopCounter % 50 === 0) {
-        walls.push(new Wall(createWallElem(), 1500, 0, 80, 200 + Math.random() * 100));
-        walls.push(new Wall(createWallElem(), 1500, 500 + Math.random() * 100, 80, 300));
-
-        // remove walls that have gone passed the left part of the screen
-        walls = walls.filter(wall => {
-            if (wall.x > 0) return true;
-
-            // remove the element from the page
-            wall.elem.parentElement.removeChild(wall.elem);
-        });
-    }
-
-    loopCounter++;
-}
-
-document.addEventListener("keypress", function (event) {
-    event.preventDefault();
-    bird.moveUp(30);
+    document.addEventListener("click", function (event) {
+        event.preventDefault();
+        game.bird.moveUp(25);
+        game.addCrap();
+    });
+    return false;
 });
-
-function createWallElem() {
-    const elem = document.createElement("div");
-    elem.classList.add("wall");
-    document.body.append(elem);
-    return elem;
-}

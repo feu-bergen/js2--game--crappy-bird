@@ -24,10 +24,9 @@ export default class Bird {
     }
 
     draw() {
+        this.elem.innerText = this.speedY > 0 ? "🦅" : "🦆";
         this.elem.style.position = "absolute";
-        this.elem.style.top = this.y + "px";
-        this.elem.style.left = this.x + "px";
-        this.elem.style.transform = `rotate(${-this.speedY}deg)`;
+        this.elem.style.transform = `translate3d(${this.x}px, ${this.y}px, 0) rotate(${-this.speedY}deg) scale(-1, 1)`;
     }
 
 }

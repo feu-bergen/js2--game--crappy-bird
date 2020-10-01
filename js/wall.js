@@ -20,8 +20,7 @@ export default class Wall {
 
     draw() {
         this.elem.style.position = "absolute";
-        this.elem.style.top = this.y + "px";
-        this.elem.style.left = this.x + "px";
+        this.elem.style.transform = `translate3d(${this.x}px, ${this.y}px, 0)`;
         this.elem.style.width = this.width + "px";
         this.elem.style.height = this.height + "px";
     }
