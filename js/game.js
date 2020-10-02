@@ -6,6 +6,7 @@ export default class Game {
 
     constructor(elem, width, height) {
         this.elem = elem;
+        this.scoreElem = elem.querySelector("#score");
         this.width = width;
         this.height = height;
 
@@ -33,6 +34,8 @@ export default class Game {
     }
 
     update() {
+        this.scoreElem.innerText = this.loopCounter;
+
         this.bird.update(0.8, 0.03);
         this.craps.forEach(crap => crap.update(0.8, 0.03));
         this.walls.forEach(wall => {
