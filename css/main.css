@@ -37,9 +37,9 @@ body {
     position: relative;
 
 
-	background: linear-gradient(-45deg, lightblue, lightgreen, lightyellow, lightpink);
+	background: linear-gradient(-45deg, green, yellow);
 	background-size: 400% 400%;
-	animation: gradient 15s ease infinite;
+	animation: gradient 5s ease infinite;
 }
 
 .bird {
@@ -51,6 +51,10 @@ body {
 .wall {
     background-color: goldenrod;
     border: 3px solid brown;
+}
+
+.crap {
+    font-size: 2em;
 }
 
 

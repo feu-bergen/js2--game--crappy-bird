@@ -32,10 +32,6 @@ export default class Game {
         clearInterval(this.interval);
     }
 
-    reset() {
-
-    }
-
     update() {
         this.bird.update(0.8, 0.03);
         this.craps.forEach(crap => crap.update(0.8, 0.03));

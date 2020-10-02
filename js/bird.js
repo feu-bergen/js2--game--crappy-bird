@@ -11,7 +11,7 @@ export default class Bird {
     }
 
     moveUp(speed) {
-        this.speedY += speed;
+        this.speedY = speed;
     }
 
     update(gravity, drag) {
@@ -26,7 +26,7 @@ export default class Bird {
     draw() {
         this.elem.innerText = this.speedY > 0 ? "🦅" : "🦆";
         this.elem.style.position = "absolute";
-        this.elem.style.transform = `translate3d(${this.x}px, ${this.y}px, 0) rotate(${-this.speedY}deg) scale(-1, 1)`;
+        this.elem.style.transform = `translate3d(${this.x}px, ${this.y}px, 0) rotate(${-this.speedY*2}deg) scale(-1, 1)`;
     }
 
 }
